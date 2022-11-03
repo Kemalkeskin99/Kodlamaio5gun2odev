@@ -1,0 +1,67 @@
+package kodlama.io.gun2odev.entities.concretes;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name="ProgramingLanguage")
+
+
+public class ProgramingLanguage {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="programingLanguage_Id")
+	private int id;
+	
+	@Column(name="language_Name")
+	private String languageName;
+	
+	@Column(name="technology_Id")
+	private int technology_Id;
+
+	public ProgramingLanguage() {
+		
+	}
+
+	public ProgramingLanguage(int id, String languageName, int technology_Id) {
+		this.id = id;
+		this.languageName = languageName;
+		this.technology_Id = technology_Id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getLanguageName() {
+		return languageName;
+	}
+
+	public void setLanguageName(String languageName) {
+		this.languageName = languageName;
+	}
+
+	public int getTechnology_Id() {
+		return technology_Id;
+	}
+
+	public void setTechnology_Id(int technology_Id) {
+		this.technology_Id = technology_Id;
+	}
+	
+	
+	
+	
+
+}

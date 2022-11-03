@@ -1,0 +1,16 @@
+package kodlama.io.gun2odev.business.abstracts;
+
+import java.util.List;
+
+import kodlama.io.gun2odev.business.requests.GetAllProgramingLanguageResponse;
+import kodlama.io.gun2odev.business.responses.CreateProgramingLanguageRequest;
+
+public interface ProgramingLanguageService {
+	
+	List<GetAllProgramingLanguageResponse>getAll();
+	void add(CreateProgramingLanguageRequest createProgramingLanguageRequest);
+	void delete(CreateProgramingLanguageRequest createProgramingLanguageRequest);
+	void update(CreateProgramingLanguageRequest createProgramingLanguageRequest);
+
+
+}

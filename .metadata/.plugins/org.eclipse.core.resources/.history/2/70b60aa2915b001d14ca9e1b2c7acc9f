@@ -1,0 +1,30 @@
+package kodlama.io.gun2odev.webApi;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import kodlama.io.gun2odev.business.abstracts.ProgramingLanguageService;
+import kodlama.io.gun2odev.business.requests.GetAllProgramingLanguageResponse;
+
+@RestController
+@RequestMapping("/api/programinglanguages")
+public class ProgramingLanguagesController {
+	
+	private ProgramingLanguageService programingLanguageService;
+
+	public ProgramingLanguagesController(ProgramingLanguageService programingLanguageService) {
+		this.programingLanguageService = programingLanguageService;
+	}
+	
+	@GetMapping("/getall")
+	public List<GetAllProgramingLanguageResponse> getAll(){
+		return programingLanguageService.getAll();
+		
+	}
+	
+	
+
+}
