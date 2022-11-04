@@ -6,16 +6,16 @@ public class GetAllLanguageTechnologyResponse {
 
 	private int technology_Id;
 	private String technology_Name;
-	private String languageName;
+	private int id;
 	
 	public GetAllLanguageTechnologyResponse() {
 		
 	}
 	
-	public GetAllLanguageTechnologyResponse(int technology_Id, String technology_Name, String languageName) {
+	public GetAllLanguageTechnologyResponse(int technology_Id, String technology_Name, int id) {
 		this.technology_Id = technology_Id;
 		this.technology_Name = technology_Name;
-		this.languageName = languageName;
+		this.id = id;
 	}
 	
 	
@@ -31,12 +31,19 @@ public class GetAllLanguageTechnologyResponse {
 	public void setTechnology_Name(String technology_Name) {
 		this.technology_Name = technology_Name;
 	}
-	public String getLanguageName() {
-		return languageName;
+
+	public int getId() {
+		return id;
 	}
-	public void setLanguageName(String languageName) {
-		this.languageName = languageName;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
+	
+
+	
+	
 
 	
 	

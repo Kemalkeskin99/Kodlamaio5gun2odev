@@ -25,11 +25,12 @@ public class LanguageTechnologyManager implements LanguageTechnologyService{
 	public List<GetAllLanguageTechnologyResponse> getAll() {
 		 List<LanguageTechnologys>languageTechnologies=languageTecnhologyRepository.findAll();
 		 List<GetAllLanguageTechnologyResponse>getAllLanguageTechnologyResponses=new ArrayList<GetAllLanguageTechnologyResponse>();
+		 
 		 for (LanguageTechnologys languageTechnology : languageTechnologies) {
 			 	GetAllLanguageTechnologyResponse allLanguageTechnologyResponse=new GetAllLanguageTechnologyResponse();
 			 	allLanguageTechnologyResponse.setTechnology_Id(languageTechnology.getTechnology_Id());
 			 	allLanguageTechnologyResponse.setTechnology_Name(languageTechnology.getTechnology_Name());
-			 	allLanguageTechnologyResponse.setLanguageName(languageTechnology.getLanguageName());
+//			 	allLanguageTechnologyResponse.setId(languageTechnology.getProgramingLanguages().getId());
 			 	getAllLanguageTechnologyResponses.add(allLanguageTechnologyResponse);
 		}
 		
@@ -49,7 +50,6 @@ public class LanguageTechnologyManager implements LanguageTechnologyService{
 		}
 		
 		LanguageTechnologys languageTechnologys=new LanguageTechnologys();
-		languageTechnologys.setLanguageName(createLanguageTechnologyRequest.getLanguageName());
 		languageTechnologys.setTechnology_Name(createLanguageTechnologyRequest.getTechnology_Name());
 		this.languageTecnhologyRepository.save(languageTechnologys);
 		
@@ -65,7 +65,6 @@ public class LanguageTechnologyManager implements LanguageTechnologyService{
 	@Override
 	public void update(int id,UpdateLanguageTechnologyRequest updateLanguageTechnologyRequest) {
 		LanguageTechnologys languageTechnologys=languageTecnhologyRepository.findById(id).get();
-		languageTechnologys.setLanguageName(updateLanguageTechnologyRequest.getLanguageName());
 		languageTechnologys.setTechnology_Name(updateLanguageTechnologyRequest.getTechnology_Name());
 		this.languageTecnhologyRepository.save(languageTechnologys);
 		

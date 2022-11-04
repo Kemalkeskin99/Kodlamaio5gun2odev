@@ -1,10 +1,14 @@
 package kodlama.io.gun2odev.entities.concretes;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,17 +28,20 @@ public class LanguageTechnologys {
 	@Column(name="technology_Name")
 	private String technology_Name;
 	
-	@Column(name="language_Name")
-	private String languageName;
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private ProgramingLanguages programingLanguages;
 
 	public LanguageTechnologys() {
 	
 	}
+	
 
-	public LanguageTechnologys(int technology_Id, String technology_Name, String languageName) {
+	public LanguageTechnologys(int technology_Id, String technology_Name,ProgramingLanguages programingLanguages) {
+	
 		this.technology_Id = technology_Id;
 		this.technology_Name = technology_Name;
-		this.languageName = languageName;
+		this.programingLanguages = programingLanguages;
 	}
 
 	public int getTechnology_Id() {
@@ -53,13 +60,17 @@ public class LanguageTechnologys {
 		this.technology_Name = technology_Name;
 	}
 
-	public String getLanguageName() {
-		return languageName;
+
+	public ProgramingLanguages getProgramingLanguages() {
+		return programingLanguages;
 	}
 
-	public void setLanguageName(String languageName) {
-		this.languageName = languageName;
+
+	public void setProgramingLanguages(ProgramingLanguages programingLanguages) {
+		this.programingLanguages = programingLanguages;
 	}
+
+
 
 	
 	

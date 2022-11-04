@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.entities.concretes.ProgramingLanguage"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.GetAllProgramingLanguageResponse"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.dataAccess.abstracts.LanguageTecnhologyRepository"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.GetAllLanguageTechnologyResponse"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -33,4 +32,9 @@
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.entities.concretes.LanguageTechnologys"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.CreateProgramingLanguageRequest"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.responses.GetAllProgramingLanguageResponse"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 </qualifiedTypeNameHistroy>

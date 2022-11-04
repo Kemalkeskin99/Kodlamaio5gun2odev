@@ -4,16 +4,16 @@ public class GetAllProgramingLanguageResponse {
 
 	private int id;
 	private String languageName;
-	private String technology_Name;
+
 	
 	public GetAllProgramingLanguageResponse() {
 		
 	}
 
-	public GetAllProgramingLanguageResponse(int id, String languageName, String technology_Name) {
+	public GetAllProgramingLanguageResponse(int id, String languageName) {
 		this.id = id;
 		this.languageName = languageName;
-		this.technology_Name = technology_Name;
+	//	this.technology_Name = technology_Name;
 	}
 
 	public int getId() {
@@ -32,12 +32,6 @@ public class GetAllProgramingLanguageResponse {
 		this.languageName = languageName;
 	}
 
-	public String getTechnology_Name() {
-		return technology_Name;
-	}
 
-	public void setTechnology_Name(String technology_Name) {
-		this.technology_Name = technology_Name;
-	}
 
 }
