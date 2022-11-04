@@ -22,14 +22,15 @@
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.abstracts.LanguageTechnologyService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.responses.CreateProgramingLanguageRequest"/>
-    <fullyQualifiedTypeName name="kodlama.io.gun2odev.entities.concretes.LanguageTechnologys"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.responses.CreateLanguageTechnologyRequest"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.CreateLanguageTechnologyRequest"/>
-    <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.CreateProgramingLanguageRequest"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.parameters.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.UpdateProgramingLanguageRequest"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.entities.concretes.ProgramingLanguages"/>
     <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.UpdateLanguageTechnologyRequest"/>
+    <fullyQualifiedTypeName name="kodlama.io.gun2odev.entities.concretes.LanguageTechnologys"/>
+    <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.requests.CreateProgramingLanguageRequest"/>
+    <fullyQualifiedTypeName name="kodlama.io.gun2odev.business.responses.GetAllProgramingLanguageResponse"/>
 </qualifiedTypeNameHistroy>
