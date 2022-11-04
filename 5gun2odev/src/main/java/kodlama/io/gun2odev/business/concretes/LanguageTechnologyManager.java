@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
 import kodlama.io.gun2odev.business.abstracts.LanguageTechnologyService;
 import kodlama.io.gun2odev.business.requests.CreateLanguageTechnologyRequest;
 import kodlama.io.gun2odev.business.requests.UpdateLanguageTechnologyRequest;
@@ -39,6 +38,16 @@ public class LanguageTechnologyManager implements LanguageTechnologyService{
 
 	@Override
 	public void add(CreateLanguageTechnologyRequest createLanguageTechnologyRequest) {
+		
+		if(isEmpty(createLanguageTechnologyRequest)) {
+			System.out.println("İsim alanını boş gecmeyiniz.");
+			return;
+		}
+		if(isExits(createLanguageTechnologyRequest)){
+			System.out.println("Dil teknolojisi mevcuttur lutfen başka bir teknolojı giriniz.");
+			return;
+		}
+		
 		LanguageTechnologys languageTechnologys=new LanguageTechnologys();
 		languageTechnologys.setLanguageName(createLanguageTechnologyRequest.getLanguageName());
 		languageTechnologys.setTechnology_Name(createLanguageTechnologyRequest.getTechnology_Name());
@@ -62,8 +71,18 @@ public class LanguageTechnologyManager implements LanguageTechnologyService{
 		
 	}
 
-
-
-
+	private boolean isExits(CreateLanguageTechnologyRequest CreateLanguageTechnologyRequest) {
+			
+			for(GetAllLanguageTechnologyResponse getAllLanguageTechnologyResponse:this.getAll()) {
+				if(getAllLanguageTechnologyResponse.getTechnology_Name().equals(CreateLanguageTechnologyRequest.getTechnology_Name())) {
+				return true;
+				}
+			}
+			
+			return false;		
+	}
+	private boolean isEmpty(CreateLanguageTechnologyRequest CreateLanguageTechnologyRequest) {
+		return CreateLanguageTechnologyRequest.getTechnology_Name().isBlank();
+	}
 
 }

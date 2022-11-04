@@ -11,11 +11,11 @@ import kodlama.io.gun2odev.business.requests.UpdateProgramingLanguageRequest;
 import kodlama.io.gun2odev.business.responses.GetAllProgramingLanguageResponse;
 import kodlama.io.gun2odev.dataAccess.abstracts.ProgramingLanguageRepository;
 import kodlama.io.gun2odev.entities.concretes.ProgramingLanguages;
+
 @Service
-public class ProgramingLanguageManager implements ProgramingLanguageService{
-	
+public class ProgramingLanguageManager implements ProgramingLanguageService {
+
 	private ProgramingLanguageRepository programingLanguageRepository;
-	
 
 	public ProgramingLanguageManager(ProgramingLanguageRepository programingLanguageRepository) {
 		this.programingLanguageRepository = programingLanguageRepository;
@@ -23,45 +23,66 @@ public class ProgramingLanguageManager implements ProgramingLanguageService{
 
 	@Override
 	public List<GetAllProgramingLanguageResponse> getAll() {
-	
-		List<ProgramingLanguages>languages=programingLanguageRepository.findAll();
-		List<GetAllProgramingLanguageResponse>getAllProgramingLanguageResponses=new ArrayList<GetAllProgramingLanguageResponse>();
+
+		List<ProgramingLanguages> languages = programingLanguageRepository.findAll();
+		List<GetAllProgramingLanguageResponse> getAllProgramingLanguageResponses = new ArrayList<GetAllProgramingLanguageResponse>();
 		for (ProgramingLanguages language : languages) {
-		 GetAllProgramingLanguageResponse allProgramingLanguageResponse=new GetAllProgramingLanguageResponse();
-		 allProgramingLanguageResponse.setId(language.getId());
-		 allProgramingLanguageResponse.setLanguageName(language.getLanguageName());
-		 getAllProgramingLanguageResponses.add(allProgramingLanguageResponse);
-			
+			GetAllProgramingLanguageResponse allProgramingLanguageResponse = new GetAllProgramingLanguageResponse();
+			allProgramingLanguageResponse.setId(language.getId());
+			allProgramingLanguageResponse.setLanguageName(language.getLanguageName());
+			getAllProgramingLanguageResponses.add(allProgramingLanguageResponse);
+
 		}
-		
+
 		return getAllProgramingLanguageResponses;
 	}
 
 	@Override
 	public void add(CreateProgramingLanguageRequest createProgramingLanguageRequest) {
-		ProgramingLanguages programingLanguages=new ProgramingLanguages();
+		
+		if(isEmpty(createProgramingLanguageRequest)) {
+			System.out.println("İsim alanını boş gecmeyiniz.");
+			return;
+		}
+		if(isExits(createProgramingLanguageRequest)) {
+			System.out.println("Program dili mevcuttur lütfen başka bir programlama dili giriniz.");
+			return;
+		}
+		ProgramingLanguages programingLanguages = new ProgramingLanguages();
 		programingLanguages.setLanguageName(createProgramingLanguageRequest.getLanguageName());
 		this.programingLanguageRepository.save(programingLanguages);
-		
-	}
 
-	
+	}
 
 	@Override
 	public void delete(int id) {
 		this.programingLanguageRepository.deleteById(id);
-		
+
 	}
 
 	@Override
 	public void update(UpdateProgramingLanguageRequest updateProgramingLanguageRequest, int id) {
-	
-		ProgramingLanguages programingLanguages=programingLanguageRepository.findById(id).get();
+
+		ProgramingLanguages programingLanguages = programingLanguageRepository.findById(id).get();
 		programingLanguages.setLanguageName(updateProgramingLanguageRequest.getLanguageName());
 		this.programingLanguageRepository.save(programingLanguages);
-		
-		
+
 	}
 
-	
+	private boolean isExits(CreateProgramingLanguageRequest createProgramingLanguageRequest) {
+
+		for (GetAllProgramingLanguageResponse getAllProgramingLanguageResponse : this.getAll()) {
+			if (getAllProgramingLanguageResponse.getLanguageName()
+					.equals(createProgramingLanguageRequest.getLanguageName())) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private boolean isEmpty(CreateProgramingLanguageRequest createProgramingLanguageRequest) {
+		return createProgramingLanguageRequest.getLanguageName().isBlank();
+	}
+
 }
