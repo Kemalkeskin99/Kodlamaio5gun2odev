@@ -1,8 +1,0 @@
-package kodlama.io.gun2odev.entities.concretes;
-
-public class LanguageTechnologys {
-	private int technology_Id;
-	private String technology_Name;
-	private int id;
-
-}

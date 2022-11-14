@@ -1,9 +1,0 @@
-package kodlama.io.gun2odev.entities.concretes;
-
-public class ProgramingLanguage {
-	
-	private int id;
-	private String languageName;
-	
-
-}
